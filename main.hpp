@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:10:58 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/06 07:48:36 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/07 10:36:43 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#define PORT 81
+#define PORT 8000
 
 #endif
