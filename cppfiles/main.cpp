@@ -6,12 +6,12 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:10:56 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/08 14:40:19 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:02:38 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/webserv.hpp"
-#include "headers/routes.hpp"
+#include "../headers/webserv.hpp"
+#include "../headers/routes.hpp"
 
 
 void	port_accessed(int fd)
