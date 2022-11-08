@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:21:21 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/08 14:07:30 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:33:28 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class routes
 		routes();
 		~routes();
 		void	set_path(std::string path);
+		std::string get_path(void);
+		std::string get_file(void);
 		void	set_file(std::string file);
 };
 

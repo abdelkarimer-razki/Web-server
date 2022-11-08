@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:10:56 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/08 14:12:29 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:40:19 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,7 @@ int main(int arc, char **arv)
 				{
 					doafae.port_accessed(c_fd);
 					std::cout << "\033[1;33mserver : response [status : 200 OK]\033[0m\n" ;
-					if (doafae.get_path() == "/" || doafae.get_path() == "/index.html")
-						doafae.get_page(c_fd, "website/index.html");
-					else
-						doafae.get_page(c_fd, "website/error.html");
-					//write(c_fd , everything.c_str() , everything.length());
+					doafae.get_page(c_fd, doafae.get_path());
 					FD_CLR(i, &server_fds);
 					std::cout << "\033[1;32mserver : connection closed\033[0m\n" ;
 				}

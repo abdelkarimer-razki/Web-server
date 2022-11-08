@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:10:58 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/08 14:27:30 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:44:24 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #include <string>
 #include <fstream>
 #include "routes.hpp"
-#define PORT 8005
+#define PORT 8002
 
 class routes;
 
@@ -37,6 +37,7 @@ class webserv
 		int port;
 		std::string server_name;
 		std::string error_page;
+		int n_routes;
 		int client_body_size;
 		std::string path;
 		routes *route;
@@ -50,6 +51,7 @@ class webserv
 		void	set_path(std::string path);
 		std::string get_path();
 		void	port_accessed(int fd);
+		std::string search_file(std::string path);
 		void	get_page(int c_fd ,std::string path);
 		std::string read_text(std::string path);
 };
