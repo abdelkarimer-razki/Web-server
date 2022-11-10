@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:21:15 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/08 17:02:44 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/09 08:35:26 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,21 @@ std::string webserv::search_file(std::string path)
 	while (++i < n_routes - 1)
 	{
 		if (route[i].get_path() == path)
+		{
+			this->response_code = 200;
 			return (route[i].get_file());
+		}
 	}
+	this->response_code = 404;
 	return (route[n_routes - 1].get_file());
 }
 
 std::string webserv::get_path()
 {
 	return (this->path);
+}
+
+int webserv::get_response_code()
+{
+	return (this->response_code);
 }
