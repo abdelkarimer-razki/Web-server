@@ -6,28 +6,27 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:10:56 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/10 11:39:42 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/13 10:36:18 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/webserv.hpp"
-#include "../headers/routes.hpp"
+#include "../headers/parser.hpp"
 
 
-void	port_accessed(int fd)
+/*void	port_accessed(int fd)
 {
 	char buffer[30000];
 	read(fd, buffer, 30000);
 	std::string sbuffer = buffer;
 	std::cout << sbuffer.substr(sbuffer.find("/"), sbuffer.substr(sbuffer.find("/"), sbuffer.length()).find(" ")) << std::endl;
-}
+}*/
 
 int main(int arc, char **arv)
 {
-	std::time_t end_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	/*std::time_t end_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	std::cout << "DO3AFAE 0.0.0 Development Server started at " << std::ctime(&end_time);
 	int s_fd, c_fd;
-	webserv doafae;
+	server doafae;
 	fd_set	server_fds, ready_fds;
 
 	struct sockaddr_in s_address;
@@ -95,5 +94,19 @@ int main(int arc, char **arv)
 				}
 			}
 		}
+	}*/
+	try
+	{
+		parser mehdi;
+		mehdi.set_conf_path(arv[1]);
+		mehdi.fillncheck();
+		mehdi.checkspaces();
+		mehdi.checktabs();
+		mehdi.split_servers();
+		
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what();
 	}
 }

@@ -8,7 +8,7 @@ GREEN=\033[0;32m
 
 NC=\033[0m
 
-FILES = cppfiles/main.cpp  cppfiles/webserv.cpp  cppfiles/routes.cpp
+FILES = cppfiles/main.cpp  cppfiles/server.cpp  cppfiles/location.cpp cppfiles/parser.cpp
 
 HEADERS = headers/*.hpp
 
@@ -29,10 +29,11 @@ clean :
 
 fclean : clean
 	@rm -f fobjs/*.o
+	@rm -f cppfiles/*.o
 	@echo "$(GREEN)✔$(NC) Cleaned."
 
 run :
-	@make re && ./$(NAME) $(Arg)
+	@make re && ./$(NAME) $(arg)
 
 re : fclean all
 
