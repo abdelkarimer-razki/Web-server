@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:10:15 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/13 13:05:03 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:48:09 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,19 +143,25 @@ parser::parser()
 
 parser::~parser(){}
 
+/*void	parser::check_args()
+{
+	std::string args[11] = {"listen", "root", "autoindex", "server_name", "error_page", "allowed_methods", "access_log", "cgiExt", "cgiPath", "location", "index"};
+
+}*/
+
 void parser::split_servers()
 {
     int x = 0;
     int y = 0;
     int a = 0;
-    for(int i = 0;i < conf_content.size(); i++)
+    for(int i = 0; i < conf_content.size(); i++)
     {
-        if (conf_content[i] == "server {")
+        if (conf_content[i] == "server {") // search server  inside config file
         {
             a++;
             x = i;
         }
-        if (conf_content[i] == "}")
+        else if (conf_content[i] == "}") // search } inside config file
         {
             a++;
             y = i;
@@ -165,20 +171,13 @@ void parser::split_servers()
             a = 0;
             server tmp;
             for (int j = x; j <= y;j++)
-            {
-                //std::cout << conf_content[j] << std::endl;
                 tmp.cont_server.push_back(conf_content[j]);
-            }
             servers.push_back(tmp);
             tmp.cont_server.clear();
         }
     }
-    for (int i = 0;i < servers.size();i++)
-    {
-        for(int j = 0; j < servers[i].cont_server.size();j++)
-        {
-            std::cout << servers[i].cont_server[j] << std::endl;
-        }
-        std::cout << "---------------------------------------------------------\n";
-    }
+	for (int i = 0;i < servers.size();i++)
+	{
+		servers[i].split_locations();
+	}
 }

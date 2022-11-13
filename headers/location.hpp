@@ -6,7 +6,7 @@
 /*   By: aer-razk <aer-razk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:21:21 by aer-razk          #+#    #+#             */
-/*   Updated: 2022/11/12 12:27:41 by aer-razk         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:40:28 by aer-razk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class location
 		std::string	cgi_extension;
 		
 	public:
+		std::vector<std::string> cont_location;
 		//orthodox canonical class methods
 		location();
 		~location();
